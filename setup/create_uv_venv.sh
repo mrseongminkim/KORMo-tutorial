@@ -1,5 +1,7 @@
 set -e
 
+unset UV_SYSTEM_PYTHON
+
 env_dir=".venv_kormo"
 
 if ! command -v uv >/dev/null 2>&1; then
@@ -18,6 +20,5 @@ source "$env_dir/bin/activate"
 echo "Currently in env $(which python)"
 
 uv pip install -e .
-uv pip install flash-attn --no-build-isolation
 
 echo "Environment \"$env_dir\" created and all packages installed successfully!"
